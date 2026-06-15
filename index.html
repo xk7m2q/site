@@ -121,9 +121,23 @@
     .footer-sns__item--line { color: #7FD67F; }
     .footer-sns__item--instagram { color: #F9A87A; }
 
+    /* Hamburger */
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger__line { display: block; width: 22px; height: 2px; background: var(--color-text); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .hamburger.is-open .hamburger__line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.is-open .hamburger__line:nth-child(2) { opacity: 0; }
+    .hamburger.is-open .hamburger__line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .sp-nav { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--color-bg); border-bottom: 1px solid var(--color-border); z-index: 99; flex-direction: column; padding: 12px 0; }
+    .sp-nav.is-open { display: flex; }
+    .sp-nav__link { font-size: 14px; color: var(--color-text-sub); padding: 12px 24px; text-decoration: none; transition: background 0.2s; }
+    .sp-nav__link:hover { background: var(--color-bg-warm); text-decoration: none; }
+    .sp-nav__link--contact { color: var(--color-primary); font-weight: 700; }
+
     /* Responsive */
     @media (max-width: 640px) {
       .site-nav { display: none; }
+      .hamburger { display: flex; }
       .section { padding: 40px 0; }
       .section-title { font-size: 19px; }
       .hero__title { font-size: 22px; }
@@ -147,8 +161,20 @@
         <a href="coming-soon.html" class="site-nav__link">活動内容</a>
         <a href="https://line.me/R/ti/p/@788ssabt" class="site-nav__link site-nav__link--contact" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
     </div>
   </header>
+
+  <nav class="sp-nav" id="spNav">
+    <a href="/" class="sp-nav__link">トップ</a>
+    <a href="coming-soon.html" class="sp-nav__link">私たちについて</a>
+    <a href="coming-soon.html" class="sp-nav__link">活動内容</a>
+    <a href="https://line.me/R/ti/p/@788ssabt" class="sp-nav__link sp-nav__link--contact" target="_blank" rel="noopener noreferrer">お問い合わせ（LINE）</a>
+  </nav>
 
   <main class="site-main">
 
@@ -289,5 +315,19 @@
   </footer>
 
 </div>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const spNav = document.getElementById('spNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('is-open');
+    spNav.classList.toggle('is-open');
+  });
+  spNav.querySelectorAll('.sp-nav__link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('is-open');
+      spNav.classList.remove('is-open');
+    });
+  });
+</script>
 </body>
 </html>
