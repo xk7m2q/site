@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>市民活動団体ハッスル｜東広島市地域</title>
+  <meta name="description" content="市民活動団体ハッスルは、東広島市地域で多世代が気軽に集い、お互いを支え合える環境づくりを目指す団体です。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌈</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary:  #C06030;
+      --color-accent:   #E8934A;
+      --color-bg:       #FFFDF8;
+      --color-bg-warm:  #FDF5E8;
+      --color-text:     #3A2E1F;
+      --color-text-sub: #7A6A55;
+      --color-border:   #F0E8D8;
+      --font-main:      'Noto Sans JP', sans-serif;
+      --font-display:   'Zen Maru Gothic', sans-serif;
+      --radius-sm:      8px;
+      --radius-md:      12px;
+      --radius-lg:      24px;
+      --max-width:      860px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font-main); background: var(--color-bg); color: var(--color-text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .site-wrapper { display: flex; flex-direction: column; min-height: 100vh; }
+    .site-main { flex: 1; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    .site-header { background: var(--color-bg); border-bottom: 1px solid var(--color-border); position: sticky; top: 0; z-index: 100; }
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .site-logo { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--color-primary); display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+    .site-logo::before { content: ''; display: inline-block; width: 8px; height: 8px; background: var(--color-accent); border-radius: 50%; flex-shrink: 0; align-self: center; }
+    .site-logo__sub { font-size: 11px; font-weight: 400; color: var(--color-text-sub); }
+    .site-nav { display: flex; align-items: center; gap: 2px; }
+    .site-nav__link { font-size: 13px; color: var(--color-text-sub); padding: 6px 12px; border-radius: var(--radius-lg); transition: background 0.2s, color 0.2s; text-decoration: none; }
+    .site-nav__link:hover { background: #FDF0E4; color: var(--color-primary); text-decoration: none; }
+    .site-nav__link--contact { background: var(--color-primary); color: #fff; margin-left: 6px; }
+    .site-nav__link--contact:hover { background: var(--color-accent); color: #fff; }
+
+    /* Buttons */
+    .btn { display: inline-block; font-family: var(--font-main); font-size: 14px; font-weight: 500; padding: 10px 24px; border-radius: var(--radius-lg); border: none; cursor: pointer; transition: opacity 0.2s; text-decoration: none; }
+    .btn:hover { opacity: 0.85; text-decoration: none; }
+    .btn-primary { background: var(--color-primary); color: #fff; }
+    .btn-outline { background: #fff; color: var(--color-primary); border: 1.5px solid var(--color-accent); }
+    .btn-join { background: #fff; color: var(--color-primary); font-weight: 700; }
+
+    /* Section */
+    .section { padding: 56px 0; }
+    .section-label { font-size: 11px; font-weight: 500; color: var(--color-accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+    .section-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--color-text); margin-bottom: 28px; }
+    .section-bg-warm { background: var(--color-bg-warm); }
+
+    /* Hero */
+    .hero { background: linear-gradient(160deg, #FDF5E8 0%, #FDE8D0 100%); padding: 64px 0 56px; position: relative; overflow: hidden; }
+    .hero__bg-circle { position: absolute; border-radius: 50%; pointer-events: none; }
+    .hero__bg-circle--1 { top: -40px; right: -40px; width: 200px; height: 200px; background: #F9D5A0; opacity: 0.35; }
+    .hero__bg-circle--2 { bottom: -24px; left: 80px; width: 100px; height: 100px; background: #F4B47A; opacity: 0.25; }
+    .hero__badge { display: inline-block; background: var(--color-accent); color: #fff; font-size: 12px; font-weight: 500; padding: 4px 14px; border-radius: var(--radius-lg); margin-bottom: 18px; letter-spacing: 0.05em; }
+    .hero__title { font-family: var(--font-display); font-size: 28px; font-weight: 700; line-height: 1.6; margin-bottom: 14px; position: relative; z-index: 1; }
+    .hero__title--accent { color: var(--color-primary); }
+    .hero__sub { font-size: 14px; color: var(--color-text-sub); line-height: 1.9; margin-bottom: 28px; position: relative; z-index: 1; }
+    .hero__btns { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* Activities */
+    .activities__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 28px; }
+    .act-card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px; }
+    .act-card__icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 10px; }
+    .act-card__icon--nijiiro { background: #FDF0E4; }
+    .act-card__icon--aicafe  { background: #FDF5E0; }
+    .act-card__icon--rakugo  { background: #FFF0F5; }
+    .act-card__icon--other   { background: #FFF3E0; }
+    .act-card__name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .act-card__desc { font-size: 12px; color: var(--color-text-sub); line-height: 1.7; }
+    .activities__more { text-align: center; }
+
+    /* SNS */
+    .sns__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .sns__card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 32px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .sns__card-icon { font-size: 36px; line-height: 1; }
+    .sns__card-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--color-text); }
+    .sns__card-text { font-size: 13px; color: var(--color-text-sub); line-height: 1.9; flex: 1; }
+
+    /* Join */
+    .join { background: var(--color-primary); text-align: center; }
+    .join__title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .join__sub { font-size: 13px; color: #F9D5A0; line-height: 1.9; margin-bottom: 24px; }
+    .join__cards { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+    .join__card { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius-md); padding: 14px 24px; min-width: 130px; }
+    .join__fee { font-size: 22px; font-weight: 700; color: #fff; }
+    .join__fee-label { font-size: 11px; color: #F9D5A0; margin-top: 4px; }
+
+    /* Footer */
+    .site-footer { background: #3A2E1F; padding: 40px 0 24px; }
+    .footer-inner { display: flex; gap: 40px; justify-content: space-between; flex-wrap: wrap; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 16px; }
+    .footer-logo { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: #F9D5A0; margin-bottom: 4px; }
+    .footer-address { font-size: 11px; color: #9A8A75; margin-bottom: 10px; }
+    .footer-copy { font-size: 10px; color: #7A6A55; }
+    .footer-links-area { display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start; }
+    .footer-col { min-width: 140px; }
+    .footer-col__title { font-size: 11px; font-weight: 700; color: #F9D5A0; margin-bottom: 8px; letter-spacing: 0.05em; }
+    .footer-col__text { font-size: 11px; color: #9A8A75; line-height: 1.8; margin-bottom: 8px; max-width: 180px; }
+    .footer-col__link { font-size: 11px; color: var(--color-accent); }
+    .footer-nav { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .footer-nav a { font-size: 11px; color: #9A8A75; transition: color 0.2s; }
+    .footer-nav a:hover { color: #F9D5A0; text-decoration: none; }
+    .footer-sns { display: flex; gap: 10px; margin-bottom: 14px; }
+    .footer-sns__item { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--radius-lg); font-size: 12px; font-weight: 500; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); transition: background 0.2s; background: rgba(255,255,255,0.07); }
+    .footer-sns__item:hover { background: rgba(255,255,255,0.14); text-decoration: none; }
+    .footer-sns__icon { width: 15px; height: 15px; flex-shrink: 0; }
+    .footer-sns__item--line { color: #7FD67F; }
+    .footer-sns__item--instagram { color: #F9A87A; }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .site-nav { display: none; }
+      .section { padding: 40px 0; }
+      .section-title { font-size: 19px; }
+      .hero__title { font-size: 22px; }
+      .activities__grid { grid-template-columns: 1fr; }
+      .sns__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="site-wrapper">
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">
+        市民活動団体 ハッスル
+        <span class="site-logo__sub">東広島市地域</span>
+      </a>
+      <nav class="site-nav" aria-label="グローバルナビゲーション">
+        <a href="/" class="site-nav__link">トップ</a>
+        <a href="coming-soon.html" class="site-nav__link">私たちについて</a>
+        <a href="coming-soon.html" class="site-nav__link">活動内容</a>
+        <a href="https://line.me/R/ti/p/@788ssabt" class="site-nav__link site-nav__link--contact" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__bg-circle hero__bg-circle--1" aria-hidden="true"></div>
+      <div class="hero__bg-circle hero__bg-circle--2" aria-hidden="true"></div>
+      <div class="container">
+        <span class="hero__badge">東広島市地域</span>
+        <h1 class="hero__title">
+          顔の見える<span class="hero__title--accent">つながり</span>が、<br>
+          住みやすい地域をつくる。
+        </h1>
+        <p class="hero__sub">
+          市民活動団体ハッスルは、地域の多世代が気軽に集い、<br>
+          お互いを支え合える環境づくりを目指す団体です。
+        </p>
+        <div class="hero__btns">
+          <a href="#activities" class="btn btn-primary">活動内容を見る</a>
+          <a href="#sns" class="btn btn-outline">SNSをフォローする</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities -->
+    <section class="section activities" id="activities">
+      <div class="container">
+        <p class="section-label">Activities</p>
+        <h2 class="section-title">ハッスルの活動</h2>
+        <div class="activities__grid">
+          <div class="act-card">
+            <div class="act-card__icon act-card__icon--nijiiro">🌈</div>
+            <h3 class="act-card__name">にじいろカフェ</h3>
+          </div>
+          <div class="act-card">
+            <div class="act-card__icon act-card__icon--aicafe">☕</div>
+            <h3 class="act-card__name">愛cafe</h3>
+          </div>
+          <div class="act-card">
+            <div class="act-card__icon act-card__icon--rakugo">🎭</div>
+            <h3 class="act-card__name">落語会</h3>
+          </div>
+          <div class="act-card">
+            <div class="act-card__icon act-card__icon--other">🎉</div>
+            <h3 class="act-card__name">その他</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SNS -->
+    <section class="section section-bg-warm" id="sns">
+      <div class="container">
+        <p class="section-label">SNS</p>
+        <h2 class="section-title">SNSでつながろう</h2>
+        <div class="sns__grid">
+          <div class="sns__card">
+            <div class="sns__card-icon">📷</div>
+            <h3 class="sns__card-title">Instagram</h3>
+            <p class="sns__card-text">活動の最新情報はInstagramで発信中！フォローして最新の様子をチェックしてください。</p>
+            <a href="https://www.instagram.com/hassle.misonou/" class="btn btn-primary" target="_blank" rel="noopener">
+              @hassle.misonou をフォローする
+            </a>
+          </div>
+          <div class="sns__card">
+            <div class="sns__card-icon">💬</div>
+            <h3 class="sns__card-title">LINE公式アカウント</h3>
+            <p class="sns__card-text">イベントのお知らせをLINEでお届けします。友だち追加してお見逃しなく！</p>
+            <a href="https://line.me/R/ti/p/@788ssabt" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+              友だち追加する
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join -->
+    <section class="section join" id="join">
+      <div class="container">
+        <h2 class="join__title">ハッスルを一緒に応援しませんか？</h2>
+        <p class="join__sub">
+          会費制で安定した活動を続けています。<br>
+          地域のつながりに賛同してくれる仲間を募集中！
+        </p>
+        <div class="join__cards">
+          <div class="join__card">
+            <div class="join__fee">1,000円</div>
+            <div class="join__fee-label">個人会員 / 年</div>
+          </div>
+          <div class="join__card">
+            <div class="join__fee">5,000円</div>
+            <div class="join__fee-label">特別会員 1口 / 年</div>
+          </div>
+        </div>
+        <a href="https://line.me/R/ti/p/@788ssabt" class="btn btn-join" target="_blank" rel="noopener noreferrer">LINEで参加・応援を問い合わせる</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-info">
+          <div class="footer-logo">市民活動団体 ハッスル</div>
+          <p class="footer-address">東広島市地域</p>
+          <div class="footer-sns">
+            <a href="https://line.me/R/ti/p/@788ssabt" target="_blank" rel="noopener noreferrer" class="footer-sns__item footer-sns__item--line">
+              <svg class="footer-sns__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+              <span class="footer-sns__label">LINE</span>
+            </a>
+            <a href="https://www.instagram.com/hassle.misonou/" target="_blank" rel="noopener noreferrer" class="footer-sns__item footer-sns__item--instagram">
+              <svg class="footer-sns__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span class="footer-sns__label">Instagram</span>
+            </a>
+          </div>
+          <div class="footer-copy">&copy; 2022 hassle. All rights reserved.</div>
+        </div>
+        <div class="footer-links-area">
+          <div class="footer-col">
+            <div class="footer-col__title">特別会員のご案内</div>
+            <p class="footer-col__text">地域活動を応援したい方・団体様、特別会員として参加いただけます。1口5,000円/年〜。</p>
+            <a href="https://line.me/R/ti/p/@788ssabt" class="footer-col__link" target="_blank" rel="noopener noreferrer">LINEで問い合わせる →</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col__title">リンク</div>
+            <ul class="footer-nav">
+              <li><a href="/">トップ</a></li>
+              <li><a href="coming-soon.html">私たちについて</a></li>
+              <li><a href="coming-soon.html">活動内容</a></li>
+              <li><a href="https://line.me/R/ti/p/@788ssabt" target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
+              <li><a href="coming-soon.html">プライバシーポリシー</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
