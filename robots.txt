@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xk7m2q.github.io/site/sitemap.xml
